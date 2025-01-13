@@ -9,24 +9,9 @@ import java.io.IOException;
 public class JSoupTest
 {
 
-
-/**
- * Example program to list links from a URL.
-  * @throws IOException 
-  */
  
      public static void main(String[] args) throws IOException {  
-    /*throws IOException {
-        Validate.isTrue(args.length == 1, "usage: supply url to fetch");
-        String url = args[0];
-        print("Fetching %s...", url);*/
 
-        //Document doc = Jsoup.connect(url).get();
-       //Document  doc = Jsoup.connect("https://www.facebook.com/")
-      //.userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
-      //.referrer("http://www.google.com")
-      //.get();
-      
       Document  doc = Jsoup.connect("https://amazon.com/")
       .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
       .referrer("http://www.google.com")
