@@ -30,8 +30,6 @@ public class JSoupTest
         .referrer("http://www.google.com")
         .timeout(100000)
         .get();
-
-        System.out.println("test1");
         
         Elements reviewNames = doc.select("[itemprop=author]");
         Elements reviews = doc.select("[itemprop=reviewBody]"); 
@@ -42,27 +40,12 @@ public class JSoupTest
             listOfUsers.add(e.text());
         }
 
-        System.out.println("\n Review Names:");
-        for (String u : listOfUsers) {
-            System.out.println(u);
-        }
-
         for (Element e : reviews) {
             listOfReviews.add(e.text());
         }
 
-        System.out.println("\n Reviews:");
-        for (String u : listOfReviews) {
-            System.out.println(u);
-        }
-
         for (Element e : dates) {
             listOfDates.add(e.text());
-        }
-
-        System.out.println("\n Dates:");
-        for (String u : listOfDates) {
-            System.out.println(u);
         }
 
 
@@ -75,16 +58,12 @@ public class JSoupTest
             DataStruct data = new DataStruct(listOfUsers.get(i), listOfReviews.get(i), listOfDates.get(i), listOfNums.get(i));
             reviewData.add(data);
         }
-
-        System.out.print("test2");
           
         
         
 
         try {
             FileWriter writer = new FileWriter("socialMediaPosts.txt");
-
-            System.out.print("test3");
 
             for (int i = 0; i < reviewData.size(); i++) {
                 String formatData = reviewData.get(i).printData();
@@ -99,5 +78,13 @@ public class JSoupTest
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+
+        System.out.println("\n------------------------------------------------------------");
+
+        AdGenerator AG = new AdGenerator(reviewData);
+
+        System.out.println("\n***");
+
+        System.out.println(AG.createAd());
     }
 }

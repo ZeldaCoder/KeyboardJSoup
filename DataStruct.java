@@ -29,6 +29,10 @@ public class DataStruct {
         return reviewDate;
     }
 
+    public double getReviewNum() {
+        return reviewNum;
+    }
+
     public String printData() {
         formattedReview = "User: " + reviewUserName + ", Rating: " + reviewNum + ", Review: " + reviewText + ", Date: " + reviewDate;
         System.out.println("\n **");
